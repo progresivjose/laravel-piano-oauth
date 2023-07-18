@@ -51,3 +51,16 @@ After that you must change the *config/auth.php* file and replace the *App\User.
 ````
 
 And that's all you must do to use the Piano Oauth in your laravel project
+
+## Enviroment Values
+
+The package expects the following values in your .env file
+
+- PIANO_AID
+- PIANO_API_TOKEN
+- PIANO_OAUTH_CLIENT_SECRET
+- PIANO_AUTH_GUARD
+
+### Configuration
+
+The package creates a *confi/piano.php* files, which stores all the confirgurations needed for the package, but the redirect_url value is set for sandbox and testing puposes, for production you must use https://id.tinypass.com/id
