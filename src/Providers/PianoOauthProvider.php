@@ -2,6 +2,7 @@
 
 namespace Progresivjose\LaravelPianoOauth\Providers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Progresivjose\PianoOauth\PianoOauth;
 
@@ -12,6 +13,13 @@ class PianoOauthProvider extends ServiceProvider
      */
     public function register()
     {
+
+        if (!$this->hasConfigLoaded()) {
+            Log::error("There is a missing configuration for the package Laravel Piano Oauth");
+
+            return null;
+        }
+
         $this->app->instance(
             PianoOauth::class,
             new PianoOauth(
@@ -21,6 +29,14 @@ class PianoOauthProvider extends ServiceProvider
                 config('piano.api_url')
             )
         );
+    }
+
+    private function hasConfigLoaded(): bool
+    {
+        return config('piano.aid') !== null
+            && config('piano.api_token') !== null
+            && config('piano.oauth_client_secret') !== null
+            && config('piano.api_url') !== null;
     }
 
     /**

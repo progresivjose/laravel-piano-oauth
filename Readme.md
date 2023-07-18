@@ -50,6 +50,16 @@ After that you must change the *config/auth.php* file and replace the *App\User.
 ]
 ````
 
+Then you should add this two lines into the *app\Http\Kernel.php* file
+
+```php
+protected $middleware = [
+        //...
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+];
+```
+
 And that's all you must do to use the Piano Oauth in your laravel project
 
 ## Enviroment Values
