@@ -11,7 +11,7 @@ This package is a laravel wrapper for the [progresivjose/piano-oauth](https://gi
 First you need to install the package in your laravel project
 
 ```bash
-composer require progresivjose/laravel-piano-oauth
+composer require progresivjose/laravel-piano-oauth -W
 ```
 
 Then you'll need to include the provider in the *config/app.php* file
