@@ -17,7 +17,8 @@ class PianoOauthProvider extends ServiceProvider
             new PianoOauth(
                 config('piano.aid'),
                 config('piano.api_token'),
-                config('piano.oauth_client_secret')
+                config('piano.oauth_client_secret'),
+                config('piano.api_url')
             )
         );
     }

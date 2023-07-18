@@ -6,4 +6,5 @@ return [
     'oauth_client_secret' => env('PIANO_OAUTH_CLIENT_SECRET', null),
     'redirect_url' => 'https://sandbox.piano.io/id/',
     'guard' => env('PIANO_AUTH_GUARD', 'web'),
+    'api_url' => env('PIANO_API_URL', 'https://sandbox.tinypass.com')
 ];

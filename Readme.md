@@ -60,6 +60,7 @@ The package expects the following values in your .env file
 - PIANO_API_TOKEN
 - PIANO_OAUTH_CLIENT_SECRET
 - PIANO_AUTH_GUARD
+- PIANO_API_URL
 
 ### Configuration
 
