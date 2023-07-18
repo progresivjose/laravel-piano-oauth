@@ -20,10 +20,14 @@ class LoginController
 
     public function postLogin(Request $request)
     {
+        $request->validate([
+            'code' => 'required|string'
+        ]);
+
         $user = $this->pianoOauth->postAuth($request->get('code'), route('post-login'));
 
         if (!$user) {
-            return redirect()->route('login');
+            return redirect()->route('login.failed', 401);
         }
 
         $data = [
@@ -41,5 +45,10 @@ class LoginController
 
             return redirect()->intended();
         }
+    }
+
+    public function failed()
+    {
+        return view('laravel-piano-oauth::auth.login-failed');
     }
 }
